@@ -1,65 +1,119 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const menuItems = [
+    { name: "หน้าหลัก", id: "home" },
+    { name: "คุณสมบัติ", id: "features" },
+    { name: "ราคา", id: "pricing" },
+    { name: "ติดต่อเรา", id: "contact" },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = 100;
+      const scrollPosition = window.scrollY + offset;
+
+      menuItems.forEach((item) => {
+        const element = document.getElementById(item.id);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(item.id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 70,
+        behavior: "smooth",
+      });
+      setActiveSection(id);
+    }
+    setIsOpen(false);
   };
 
   return (
-  <nav className="bg-[#821E1F] shadow-md fixed top-0 w-full z-[1000] font-sans">
-    
-      <div className="max-w-[1100px] mx-auto px-5 flex justify-between items-center h-[70px]">
-        
-        <a href="/" className="text-2xl font-bold text-blue-600 no-underline">
-          MyBrand
-        </a>
+    <nav className="bg-red  fixed top-0 w-full z-[1000] font-sans h-[70px]">
+      <div className="max-w-full h-full mx-auto px-4 md:px-10 flex items-center relative">
+        <div className="flex-shrink-0 z-10">
+          <a onClick={() => scrollToSection("home")} className="cursor-pointer">
+            <img
+              src="/image/logo1.png"
+              alt="Logo"
+              className="h-14 md:h-16 w-auto"
+            />
+          </a>
+        </div>
 
-        <ul className={`
-          /* Common Styles */
-          flex list-none gap-[30px] transition-all duration-300 ease-in-out
-          
-          /* Mobile Styles (เมื่อจอเล็กกว่า 768px) */
-          max-md:flex-col max-md:absolute max-md:top-[70px] max-md:left-0 max-md:w-full 
-          max-md:bg-white max-md:text-center max-md:border-t max-md:border-gray-100 
-          max-md:overflow-hidden
-          
-          /* Logic เปิด-ปิดบนมือถือ */
-          ${isOpen ? 'max-md:max-h-[300px] max-md:py-5' : 'max-md:max-h-0 max-md:py-0'}
-          
-          /* Desktop Styles (เมื่อจอ 768px ขึ้นไป) */
-          md:flex md:static md:max-h-full md:py-0
-        `}>
-          
-          <li>
-            <a href="#" className="text-write font-medium no-underline hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
-              หน้าหลัก
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-write font-medium no-underline hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
-              คุณสมบัติ
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-write font-medium no-underline hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
-              ราคา
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-write font-medium no-underline hover:text-blue-600 transition-colors" onClick={() => setIsOpen(false)}>
-              ติดต่อเรา
-            </a>
-          </li>
-        </ul>
-        <button 
-          className="hidden max-md:block bg-transparent border-none text-2xl cursor-pointer text-[#333]" 
-          onClick={toggleMenu} 
-          aria-label="Toggle navigation"
+        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
+          <ul className="flex list-none gap-[30px] items-center">
+            {menuItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  onClick={() => scrollToSection(item.id)}
+                  className={`font-semibold cursor-pointer transition-all duration-300 text-lg
+                    ${
+                      activeSection === item.id
+                        ? "text-cream"
+                        : "text-white hover:text-cream"
+                    }`}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <button
+          className="ml-auto md:hidden text-3xl text-white cursor-pointer"
+          onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? '✕' : '☰'}
+          {isOpen ? "✕" : "☰"}
         </button>
+
+        <div
+          className={`
+          md:hidden absolute top-[70px] left-0 w-full z-50 transition-all duration-500 ease-in-out overflow-hidden
+          ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}
+        `}
+        >
+          <ul className="bg-white flex flex-col items-center gap-6 py-10 shadow-xl border-t border-gray-100">
+            {menuItems.map((item) => (
+              <li key={item.id} className="w-full text-center">
+                <a
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-xl font-bold block py-2 transition-colors
+                    ${
+                      activeSection === item.id
+                        ? "text-green"
+                        : "text-wrhit"
+                    }`}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div
+            className="h-screen bg-black/40"
+            onClick={() => setIsOpen(false)}
+          ></div>
+        </div>
       </div>
     </nav>
   );
