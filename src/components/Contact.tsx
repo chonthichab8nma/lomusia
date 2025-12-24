@@ -1,4 +1,4 @@
-import { Envelope, Phone, Clock } from "phosphor-react";
+import { Envelope, Phone, Clock ,CheckCircle } from "phosphor-react";
 
 function Contact() {
     return (
@@ -11,7 +11,7 @@ function Contact() {
         </header>        
      <main className="max-w-6xl mx-auto grid grid-cols-2 gap-6 p-6">
 
-    <div className="bg-white rounded-xl shadow p-6 flex flex-col gap-4 border border-green">
+    <div className="bg-white rounded-xl shadow p-6 flex flex-col gap-4 ">
         <h2 className="text-xl font-bold">ส่งข้อความถึงเรา</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -41,8 +41,7 @@ function Contact() {
                     className="border border-gray-300 bg-gray-100 rounded w-full outline-none p-[5px]"
                 />
         <label>ข้อความ</label>
-            <textarea
-                        
+            <textarea          
                 className="border border-gray-300 bg-gray-100 rounded w-full outline-none p-[5px] h-32 resize-none"
             ></textarea>
         <button className="bg-red text-white rounded px-4 py-2 hover:bg-green-800 hover:scale-105 duration-400 ease-in-out">
@@ -60,26 +59,44 @@ function Contact() {
                  
                 <div className="flex items-center gap-4 mt-4">
                     <Envelope size={32} className="text-red" />
-                    <h1>kdfgvkd</h1>
+                    <h1>Lomosia@gmail.com</h1>
                 </div>
                  <div className="flex items-center gap-4 mt-4">
                     <Phone size={32} className="text-red" />
-                    <h1>kdfgvkd</h1>
+                    <h1>090-9999999</h1>
                 </div>
                  <div className="flex items-center gap-4 mt-4">
                     <Clock size={32} className="text-red" />
-                    <h1>kdfgvkd</h1>
+                    <h1>9.00-18.00</h1>
                 </div>
                 
 
             </div>
 
-            <div className="bg-white rounded-xl shadow p-6 flex  ">
-                <h2 className="text-xl font-bold">ทำไมเลือก Lomosia</h2>    
+            <div className="bg-white rounded-xl shadow p-6  ">
+                <div>
+                    <h2 className="text-xl font-bold">ทำไมเลือก Lomosia</h2>
+                </div>
+                
+                <div className="flex items-center gap-4 mt-4">
+                    <CheckCircle size={32} className="text-red" />
+                    <h1>วัตถุดิบพรีเมียม ปลอดภัยต่อสุขภาพ</h1>
+                </div>    
+                  <div className="flex items-center gap-4 mt-4">
+                    <CheckCircle size={32} className="text-red" />
+                    <h1>กลิ่นที่ออกแบบมาเพื่อ “ความรู้สึก</h1>
+                </div>  
+                  <div className="flex items-center gap-4 mt-4">
+                    <CheckCircle size={32} className="text-red" />
+                    <h1>ดีไซน์เรียบหรู เหมาะกับทุกพื้นที่d</h1>
+                </div>  
             </div>
         </div>
 
         </main>
+       
+
+
 
         </>
     )

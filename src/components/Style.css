@@ -1,14 +1,48 @@
 @import "tailwindcss";
 
+
+@font-face {
+  font-family: 'Ribbon';
+  src: url('/fonts/Ribbon.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GreatVibes';
+  src: url('/fonts/GreatVibes-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src: url('/fonts/Prompt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src: url('/fonts/Prompt-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
+  
   --color-red: #A02424;
   --color-green: #A2AF91;
   --color-cream: #E7E5DA;
-  --color-greentext :#004830;
-}
-@font-face {
-  font-family: "Ribbon";
-  src: url("@/assets/fonts/Ribbon.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+  --color-greentext: #004830;
+  --color-greenold: #3f5739;
+
+  
+  --font-ribbon: "Ribbon", cursive;
+  --font-prompt: "Prompt", sans-serif;
+  --font-great-vibes: "GreatVibes" ,cursive;
 }

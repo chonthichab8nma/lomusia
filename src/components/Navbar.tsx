@@ -65,7 +65,7 @@ const Navbar = () => {
               <li key={item.id}>
                 <a
                   onClick={() => scrollToSection(item.id)}
-                  className={`font-semibold cursor-pointer transition-all duration-300 text-lg
+                  className={`font-prompt font-semibold cursor-pointer transition-all duration-300 text-lg
                     ${
                       activeSection === item.id
                         ? "text-cream"
@@ -97,11 +97,11 @@ const Navbar = () => {
               <li key={item.id} className="w-full text-center">
                 <a
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-xl font-bold block py-2 transition-colors
+                  className={`font-prompt text-xl font-bold block py-2 transition-colors
                     ${
                       activeSection === item.id
-                        ? "text-green"
-                        : "text-wrhit"
+                        ? "text-greenold"
+                        : "text-green"
                     }`}
                 >
                   {item.name}

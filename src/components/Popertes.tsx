@@ -1,6 +1,5 @@
-import {ChartScatter} from './animate-ui/icons/chart-scatter';
-import {Sparkles} from './animate-ui/icons/sparkles'; 
-import {SquareDashedKanban} from './animate-ui/icons/square-dashed-kanban';
+
+import { Leaf , Sparkle , Fire} from "phosphor-react";
 import "./Style.css";
 function Popertes() {
   
@@ -15,15 +14,15 @@ function Popertes() {
             
           <div className="bg-white rounded-xl p-6 shadow hover:-translate-y-1 transition text-center ">
             <div className="flex justify-center items-center ">
-            <ChartScatter animateOnHover 
-                className="w-16 h-16 text-greentext mb-[20px]" /></div>
+            <Leaf 
+                className="w-16 h-16 text-red mb-[20px]" /></div>
             <h2 className="text-xl font-bold mb-[10px]">ส่วนประกอบ</h2>
             <p>วัตถุดิบเกรดพรีเมียม ปลอดภัยต่อคุณและโลก</p>
           </div>
 
           <div className="bg-white rounded-xl p-6 shadow hover:-translate-y-1 transition text-center">
             <div className="flex justify-center items-center">
-            <Sparkles animateOnHover 
+            <Sparkle
                 className="w-16 h-16 text-red mb-[20px]"/></div>
             <h2 className="text-xl font-bold mb-[10px]">การกระจายกลิ่น</h2>
             <p>กลิ่นชัด กระจายตัวดีเยี่ยม ทั่วทุกมุมห้อง</p>
@@ -31,7 +30,7 @@ function Popertes() {
 
           <div className="bg-white rounded-xl p-6 shadow hover:-translate-y-1 transition text-center">
             <div className="flex justify-center items-center">
-            <SquareDashedKanban animateOnHover 
+            <Fire
                className="w-16 h-16 text-red mb-[20px]"/></div>
             <h2 className="text-xl font-bold mb-[10px]">การเผาไหม้</h2>
             <p>หน้าเทียนเรียบสวย ไร้เขม่ากวนใจ</p>

@@ -1,36 +1,68 @@
+import "./components/Style.css";
 import Popertes from "./components/Popertes";
 import Navbar from "./components/Navbar";
 import Price from "./components/Price";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
+import Snowfall from "react-snowfall";
+import ChristmasAudio from "./components/ChristmasAudio";
 
 function App() {
   return (
-    <div className="bg-cream">
-      <section className="flex flex-col">
-        <Navbar />
+    <div className="bg-cream relative">
+      <Snowfall
+        color="#ffffff"
+        snowflakeCount={80}
+        radius={[0.5, 2.5]}
+        speed={[0.5, 1.5]}
+        style={{
+          position: "fixed",
+          width: "100vw",
+          height: "100vh",
+          zIndex: 9999,
+          pointerEvents: "none",
+        }}
+      />
 
-        <div>
-          <Navbar />
+      <Snowfall
+        color="#3f5739"
+        snowflakeCount={70}
+        radius={[0.5, 2.0]}
+        speed={[0.8, 2.0]}
+        style={{
+          position: "fixed",
+          width: "100vw",
+          height: "100vh",
+          zIndex: 9999,
+          pointerEvents: "none",
+        }}
+      />
 
-          {/* ส่วนเนื้อหาต่างๆ */}
-          <section id="home" className="h-screen pt-20">
-            <Home />
-          </section>
+      <Navbar />
+      <ChristmasAudio />
 
-          <section id="features" className=" mt-20">
-            <Popertes />
-          </section>
+      <main>
+        <section id="home" className="min-h-screen pt-[70px]">
+          <Home />
+        </section>
 
-          <section id="pricing" className="h-screen pt-20">
-            <Price />
-          </section>
+        <section id="features" className="py-20">
+          <Popertes />
+        </section>
 
-          <section id="contact" className="mt-20">
-            <Contact />
-          </section>
-        </div>
-      </section>
+        <section id="pricing" className="py-20">
+          <Price />
+        </section>
+
+        <section id="contact" className="py-20">
+          <Contact />
+        </section>
+
+        <footer id="footer" className="bg-red">
+          <Footer />
+        </footer>
+      </main>
     </div>
   );
 }

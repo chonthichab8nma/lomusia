@@ -1,59 +1,52 @@
-import React from 'react';
+import React from "react";
+import "./Style.css";
 
-const Heme = () => {
+const Home = () => {
   return (
-    <section id="home" className="pt-[70px] min-h-[90vh] flex items-center">
+    <section
+      id="home"
+      className="pt-20px min-h-[90vh] flex items-center bg-[--color-cream]"
+    >
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 w-full">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-          
-          {/* --- ฝั่งซ้าย: แคปชันและข้อความ --- */}
           <div className="flex-1 text-center md:text-left order-2 md:order-1">
-            <span className="inline-block px-4 py-1 rounded-full text-white font-bold text-sm mb-4">
-              เฉลิมฉลองเทศกาลแห่งความสุข พร้อมดีลพิเศษส่งท้ายปี
-            </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
-              เปลี่ยนบ้านให้เป็นดินแดนมหัศจรรย์ <br /> 
-              <span className="text-white">Christmas & New Year</span> <br />
-              Scented Candles.
-            </h1>
-            <p className="text-gray-600 text-lg mb-8 max-w-lg">
-              สร้างความทรงจำแสนพิเศษในเทศกาลปีใหม่ ด้วยกลิ่นหอมที่คุณหลงรัก
+            <p className="font-prompt-bold text-greenold uppercase tracking-[0.3em] text-sm mb-4">
+              Scented Candles
             </p>
-            
-            {/* <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <button className="bg- text-white px-8 py-4 rounded-full font-bold hover:bg-[#a52a2c] transition-all shadow-lg hover:-translate-y-1">
-                ช้อปเลยตอนนี้
-              </button>
-              <button className="border-2 border-[#3f5739] text-[#3f5739] px-8 py-4 rounded-full font-bold hover:bg-[#3f5739] hover:text-white transition-all">
-                ดูคอลเลกชันทั้งหมด
-              </button>
-            </div> */}
-          </div>
-
-          {/* --- ฝั่งขวา: รูปภาพ --- */}
-          <div className="flex-1 order-1 md:order-2 w-full max-w-[500px] md:max-w-none">
-            <div className="relative">
-              {/* ตกแต่งพื้นหลังรูปนิดหน่อย */}
-              {/* <div className="absolute -top-4 -right-4 w-full h-full border-2 border-[#f1c4ab] rounded-2xl z-0"></div> */}
-              
-              <img 
-                src="/image/b6.png" 
-                alt="Christmas Scented Candle" 
-                // className="relative z-10 w-full h-auto rounded-2xl shadow-2xl object-cover min-h-[400px]"
-              />
-
-              {/* ป้ายวงกลมโปรโมชั่น */}
-              {/* <div className="absolute -bottom-6 -left-6 bg-[#3f5739] text-white w-24 h-24 rounded-full flex flex-col items-center justify-center z-20 shadow-xl border-4 border-white rotate-12">
-                <span className="text-xs">ลดสูงสุด</span>
-                <span className="text-xl font-bold">50%</span>
-              </div> */}
+            <div className="mb-4">
+              <span className="font-great-vibes text-5xl md:text-7xl text-red leading-[0.8] md:leading-[0.9] mb-4">
+                Unwrap the magic of the season
+              </span>
+            </div>
+            <h1 className="font-prompt text-l md:text-2xl text-greenold leading-tight mb-6">
+              The Magic of Home <br />
+              <span className="font-prompt text-2xl md:text-3xl block mt-2 text-red">
+                Christmas & New Year Specials !
+              </span>
+            </h1>
+            <div className="mt-4 md:mt-6">
+              <p className="font-prompt font-light text-greenold text-base md:text-xl leading-relaxed max-w-[600px] opacity-90">
+                ให้กลิ่นหอมที่คุณหลงรักเป็นผู้นำทางย้อนกลับไปสู่ความทรงจำแสนอบอุ่น{" "}
+                <br className="hidden md:block" />
+                สร้างดินแดนแห่งความสุขที่เปลี่ยนทุกมุมบ้านให้กลายเป็นพื้นที่{" "}
+                <br className="hidden md:block" />
+                แห่งการเฉลิมฉลองอันมหัศจรรย์และพิเศษกว่าปีไหนๆ
+              </p>
             </div>
           </div>
-
+          <div className="flex-1 order-1 md:order-2 w-full max-w-[500px] md:max-w-none">
+            <div className="relative flex justify-center">
+              <img
+                src="/image/b6.png"
+                alt="Christmas Scented Candle"
+                className="w-full h-auto max-h-[500px] object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Heme;
+export default Home;
