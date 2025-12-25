@@ -1,5 +1,3 @@
-import React from "react";
-
 const ChristmasButton = () => {
   const playChristmasSound = () => {
     const santa = new Audio("/songs/santa.mp3");
@@ -17,7 +15,7 @@ const ChristmasButton = () => {
 
   return (
     
-    <div className="fixed bottom-10 right-10 z-[10000]"> 
+    <div className="fixed bottom-10 right-10 z-10000"> 
       <button
         onClick={playChristmasSound}
         className="group relative px-6 py-3 bg-red text-white rounded-full font-bold text-lg shadow-2xl hover:bg-green transition-all duration-300 transform hover:scale-110 active:scale-95 flex items-center gap-2"

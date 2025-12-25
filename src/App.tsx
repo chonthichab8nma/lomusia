@@ -9,8 +9,29 @@ import Snowfall from "react-snowfall";
 import ChristmasAudio from "./components/ChristmasAudio";
 
 function App() {
+
+  const menuItems = [
+    { label: "home", id: "home" },
+    { label: "features", id: "features" },
+    { label: "pricing", id: "pricing" },
+    { label: "contact", id: "contact" },
+  ];
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 70,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <div className="bg-cream relative">
+    <>
+    {/* <img className="w-16 md:w-32 lg:w-48 mt-100" src="/image/b2.png" /> */}
+    <div className="bg-cream relative ">
+      
       <Snowfall
         color="#ffffff"
         snowflakeCount={80}
@@ -24,7 +45,6 @@ function App() {
           pointerEvents: "none",
         }}
       />
-
       <Snowfall
         color="#3f5739"
         snowflakeCount={70}
@@ -38,20 +58,18 @@ function App() {
           pointerEvents: "none",
         }}
       />
-
       <Navbar />
       <ChristmasAudio />
-
       <main>
-        <section id="home" className="min-h-screen pt-[70px]">
+        <section id="home" className="min-h-screen pt-17.5">
           <Home />
         </section>
 
-        <section id="features" className="py-20">
+        <section id="features">
           <Popertes />
         </section>
 
-        <section id="pricing" className="py-20">
+        <section id="pricing">
           <Price />
         </section>
 
@@ -59,11 +77,10 @@ function App() {
           <Contact />
         </section>
 
-        <footer id="footer" className="bg-red">
-          <Footer />
-        </footer>
+        <Footer menuItems={menuItems} scrollToSection={scrollToSection} />
       </main>
     </div>
+    </>
   );
 }
 
